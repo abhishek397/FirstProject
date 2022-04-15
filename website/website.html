@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Website</title>
+	<link rel="stylesheet" type="text/css" href="web.css">
+
+
+</head>
+<body>
+	<header class="reg" id="home">
+
+		<nav class="navigation">
+			<div class="logo">
+			<img src="logo.png">
+			</div>
+			<div class="menu">
+				<ol>
+					<a href="#home"><li>Home</li></a>
+					<a href="#contact"><li>Contact Us</li></a>
+					<a href="#about"><li>About Us</li></a>
+					<a href="#ourteam"><li>Our Team</li></a>
+					<a href="#Registration"><li>Registration Form</li></a>
+				</ol>
+			</div>
+		</nav>
+	</header>
+	<div id="slider" class="btn">
+		<div id="box">
+			<img src="a.jpg">
+		</div>
+		<button class="prev" onclick="return prevImage()">Prev</button>
+		<button class="next" onclick="return nextImage()">Next</button>
+		
+
+		
+	</div>
+	<script>
+		var image=["a","b","c"];
+		var num=0;
+
+		function nextImage(){
+			var slide_content=document.getElementById('box');
+			num++;
+			if(num>=image.length){
+				num=0;
+			}
+
+			slide_content.innerHTML=`<img src="${image[num]}.jpg">`;
+		}
+
+
+
+		function prevImage(){
+			var slide_content=document.getElementById('box');
+			num--;
+			if(num<0){
+				num=image.length-1;
+			}
+
+			slide_content.innerHTML=`<img src="${image[num]}.jpg">`;
+		}
+
+		setInterval(nextImage,2000);
+
+	</script>
+	</div>
+	<div class="image">
+		<h2 id="about">ABOUT US</h2>
+	<!-- 	<hr> -->
+	
+		
+		<img src="dentist-front.png" >
+		
+		<p>
+		Welcome to B & D Carpentry and Construction. We pride ourselves on our excellent quality of workmanship and high standard finish. We specialise in delivering high-quality new homes, extensions, home renovations, bespoke kitchens & furniture. We have accumulated a huge amount of knowledge from the many successful jobs we have completed around the Greater Leinster area. We work with Interior designers and Architects so we can work with you from the very start of your project right through to the end without the need to look anywhere else.
+		</p>
+
+	</div>
+
+	<section id="contact">
+	<div class="contact_text">
+		<h2>Contact Us</h2>
+		<p>Get in to touch with jordan &sean for a free onsite evalution and quote</p>
+		<p>Email:-<a href="">banddcarpentry.com</a></p>
+		<p>Phone no:-<a href="">0751-123456</a></p>
+		
+	</div>
+	<div class="contact_form" >
+		<form>
+			<input type="text" placeholder="Your Name" class="in"><br>
+			<input type="text" placeholder="Last Name" class="in"><br>
+			<input type="email" placeholder="Email" class="in"><br>
+			<input type="number" placeholder="Your Number" class="in"><br>
+			<textarea placeholder="Type Your Query Here"></textarea><br>
+			<button>Send</button>
+		</form>
+
+		
+	</div>
+</section>
+
+	
+
+
+	<section id="ourteam">
+		<h1>Our Team Members...</h1>
+		<div class="ourteam">
+			<img src="team1.png">
+			<h2>Saurabh</h2>
+			<p>Team Manager...</p>
+			<a href="readmore.html"><button>Read More..</button></a>
+		</div >
+		<div class="ourteam">
+			<img src="team2.png">
+			<h2>Tanmay</h2>
+			<p>Designer...</p>
+			<a href="readmore.html"><button>Read More..</button></a>
+		</div>
+		<div class="ourteam">
+			<img src="team3.png">
+			<h2>Abhishek</h2>
+			<p>Tester...</p>
+			<a href="readmore.html"><button>Read More..</button></a>
+		</div>
+		<div class="ourteam">
+			<img src="team4.png">
+			<h2>Harsh</h2>
+			<p>Work Manager...</p>
+			<a href="readmore.html"><button>Read More..</button></a>
+		</div>
+	</section>
+
+
+
+	
+
+	<form class="form" id="Registration" name="myform" onsubmit="return validateData()">
+		<h1>Registration Form</h1><br>
+		<div>
+			First Name<br>
+			<input type="text" placeholder="First Name" id='un' name="uname">
+		</div><br>
+
+		<div>
+			Last Name<br>
+			<input type="text" placeholder="Last Name"  id="ln">
+		</div><br>
+
+		<div>
+			Email:-<br>
+			<input type="email" placeholder="Type Here Email"  id="email">
+		
+		</div><br>
+
+		<div>
+			Phone NO.-<br>
+			<input type="number" placeholder="Phone Number" id="number">
+		</div><br>
+
+		<span class="gender" id="gender" >
+			Gender:-
+			<input type="radio" name="gender" checked="">Male
+			<input type="radio" name="gender">Female
+		</span><br>
+
+		Address:-
+		<textarea placeholder="Type Here Address" id="address"></textarea><br>
+		
+
+		<button type="submit" value="submit">Submit</button>
+		<button type="reset">Reset</button>
+
+
+	</form>
+
+	<script>
+	var alphaExp = /^[a-zA-Z\s]+$/;
+	var numExp=/^[0-9]*$/;
+	// var alphaNumExp = /^[a-zA-Z0-9]+$/;
+	// var alphaNumSpaceExp = /^[a-zA-Z0-9\s]+$/;
+	var alphaAddExp = /^[a-zA-Z0-9\s,.'-]{3,}$/;
+	var emailExp = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;	
+
+	function validateData(){
+		var x=document.getElementById('un').value;
+
+		if(x==""){
+			alert("enter your name");
+			document.getElementById('un').focus();
+			return false;
+		}
+		if(!x.match(alphaExp)){
+			alert("name in character only");
+			document.getElementById('un').focus();
+			return false;
+		}
+
+		var x=document.getElementById('ln').value;
+		if(x==""){
+			alert("Enter last name");
+			documnet.getElementById('ln').focus();
+			return false
+		}
+		if(!x.match(alphaExp)){
+			alert("Last name should be in character only");
+			document.getElementById('ln').focus();
+			return false;
+
+		}
+
+		var x=document.getElementById('email').value;
+		if(x=="")
+		{
+			alert("Type your Email");
+			document.getElementById('email').focus();
+			return false;
+		}
+		if(!x.match(emailExp)){
+			alert("Email should be in valid formate");
+			document.getElementById('email').focus();
+			return false;
+		}
+
+		var x=document.getElementById('number').value;
+
+		if(x==""){
+			alert("Entr your mobile number");
+			document.getElementById('number').focus();
+			return false;
+
+		}
+
+		if(!x.match(numExp)){
+			alert("Mobile number should be in number formate");
+			document.getElementById('number').focus();
+			return false;
+		}
+
+		var x=document.getElementById('address').value;
+
+		if(x==""){
+			alert("Entr your mobile Address");
+			document.getElementById('address').focus();
+			return false;
+
+		}
+
+		if(!x.match(alphaAddExp)){
+			alert("Address number should be in address formate");
+			document.getElementById('address').focus();
+			return false;
+		}
+
+
+		
+
+		
+	}
+
+
+
+
+
+
+</script>
+
+
+
+	
+	<footer><marquee onmouseover="stop()" onmouseout="start()">Copyright &copy; !! All rights are Reserved 2021</marquee></footer>
+
+
+	
+
+</body>
+</html>

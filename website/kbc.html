@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form onclick="return validatedata()">
+		name:
+		<input type="text" id="un"><br>
+		last name;
+		<input type="text" id="ln">
+		<input type="submit" value="submit">
+	</form>
+		<script>
+		var alpha=/^[a-zA-Z\s]+$/;
+		var number=/^[0-9]*$/;
+		var Address=/^[a-zA-Z0-9,.'-']{3,0}$/;
+		var email=^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$;
+
+		function validatedata(){
+			var x=document.getElementById("un").value;
+			if(x==""){
+				alert("plaese select name");
+				document.getElementById("un").focus();
+				return false;
+			}
+			if(!x.match(alpha)){
+				alert('your name should be character');
+				document.getElementById("un").focus();
+				return false;
+			}
+			
+		}
+	</script>
+
+</body>
+</html>
